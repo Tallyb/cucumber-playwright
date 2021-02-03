@@ -1,0 +1,57 @@
+{
+  "name": "cucumber-ts-starter",
+  "version": "1.1.0",
+  "description": "Starter project to write and debug cucumber-js features in TypeScript language",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf build && npm run format && npm run lint && tsc && npm run cucumber-check",
+    "check": "cucumber-js features/**/*.feature --dry-run --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format summary --format progress --format progress-bar  --publish-quiet",
+    "start": "cucumber-js features/**/*.feature --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\"  --format html:reports/report.html --format summary --format @cucumber/pretty-formatter --format cucumber-console-formatter --publish-quiet",
+    "eslint-fix": "eslint ./ --ext .js,.ts,.tsx --fix",
+    "eslint-init": "eslint --init",
+    "format": "prettier --write \"**/*.{ts,tsx,css,html}\" ",
+    "lint": "eslint ./ --ext .js,.ts,.tsx --format visualstudio --no-color --report-unused-disable-directives",
+    "only": "npm run cucumber -- --tags @only",
+    "report": "open reports/report.html",
+    "snippets": "cucumber-js features/**/*.feature --dry-run --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format snippets  --publish-quiet",
+    "steps-usage": "cucumber-js features/**/*.feature --dry-run --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format usage  --publish-quiet",
+    "test": "npm run cucumber"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hdorgeval/cucumber7-ts-starter.git"
+  },
+  "author": "Henri d'Orgeval",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hdorgeval/cucumber7-ts-starter/issues"
+  },
+  "homepage": "https://github.com/hdorgeval/cucumber7-ts-starter#readme",
+  "dependencies": {
+    "@cucumber/cucumber": "7.0.0",
+    "@cucumber/html-formatter": "11.0.4",
+    "@cucumber/pretty-formatter": "1.0.0-alpha.0",
+    "@types/expect": "24.3.0",
+    "@types/lodash": "4.14.167",
+    "@types/node": "14.14.20",
+    "cucumber-console-formatter": "1.0.0",
+    "cucumber-pretty": "^6.0.0",
+    "expect": "26.6.2",
+    "rimraf": "3.0.2",
+    "typescript": "4.1.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "4.12.0",
+    "@typescript-eslint/parser": "4.12.0",
+    "eslint": "7.17.0",
+    "eslint-config-prettier": "7.1.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-prettier": "3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "playwright": "1.8.0",
+    "prettier": "2.2.1"
+  }
+}
