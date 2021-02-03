@@ -1,4 +1,4 @@
-# cucumber-ts-starter
+# cucumber-playwright
 
 ## Reports folder
 

@@ -1,7 +1,7 @@
 {
-  "name": "cucumber-ts-starter",
-  "version": "1.1.0",
-  "description": "Starter project to write and debug cucumber-js features in TypeScript language",
+  "name": "cucumber-playwright",
+  "version": "1.0.0",
+  "description": "Starter project to write and debug cucumber-js features with Playwright",
   "main": "index.js",
   "scripts": {
     "build": "rimraf build && npm run format && npm run lint && tsc && npm run cucumber-check",
@@ -27,9 +27,9 @@
   "author": "Henri d'Orgeval",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hdorgeval/cucumber7-ts-starter/issues"
+    "url": "https://github.com/tallyb/cucumber-playwright/issues"
   },
-  "homepage": "https://github.com/hdorgeval/cucumber7-ts-starter#readme",
+  "homepage": "https://github.com/tallyb/cucumber-playwright#readme",
   "dependencies": {
     "@cucumber/cucumber": "7.0.0",
     "@cucumber/html-formatter": "11.0.4",

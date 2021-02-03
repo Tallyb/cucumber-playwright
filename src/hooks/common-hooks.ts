@@ -39,7 +39,6 @@ Before(async function (this: CustomWorld, { pickle }: ITestCaseHookParameter) {
   this.feature = pickle;
 });
 
-//{pickle, gherkinDocument, result, testCaseStartedId}
 After(async function (this: CustomWorld, { result }: ITestCaseHookParameter) {
   if (result) {
     this.attach(`Status: ${result?.status}. Duration:${result.duration?.seconds}}s`);
