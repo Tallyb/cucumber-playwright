@@ -1,9 +1,12 @@
-# cucumber7-ts-starter
+# cucumber7-playwright
 
-[![Build Status](https://travis-ci.org/hdorgeval/cucumber7-ts-starter.svg?branch=main)](https://travis-ci.org/hdorgeval/cucumber7-ts-starter)
-[![Build status](https://ci.appveyor.com/api/projects/status/v7ing1c5m9fr0fjf?svg=true)](https://ci.appveyor.com/project/hdorgeval/cucumber7-ts-starter)
+A starter repo for using Cucumber(7) with Playwright using Typescript. 
 
-Starter project to write and debug cucumber-js v7 features in TypeScript language
+## Kudos
+
+This repository is based on the [Cucumber-typescript-starter](https://github.com/hdorgeval/cucumber7-ts-starter/blob/main/package.json) repo. 
+
+
 
 ## After cloning the repo
 

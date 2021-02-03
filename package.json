@@ -6,23 +6,23 @@
   "scripts": {
     "build": "rimraf build && npm run format && npm run lint && tsc && npm run cucumber-check",
     "check": "cucumber-js features/**/*.feature --dry-run --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format summary --format progress --format progress-bar  --publish-quiet",
-    "start": "cucumber-js features/**/*.feature --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\"  --format html:reports/report.html --format summary --format @cucumber/pretty-formatter --format cucumber-console-formatter --publish-quiet",
     "eslint-fix": "eslint ./ --ext .js,.ts,.tsx --fix",
     "eslint-init": "eslint --init",
     "format": "prettier --write \"**/*.{ts,tsx,css,html}\" ",
     "lint": "eslint ./ --ext .js,.ts,.tsx --format visualstudio --no-color --report-unused-disable-directives",
     "only": "npm run cucumber -- --tags @only",
     "report": "open reports/report.html",
-    "snippets": "cucumber-js features/**/*.feature --dry-run --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format snippets  --publish-quiet",
-    "steps-usage": "cucumber-js features/**/*.feature --dry-run --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format usage  --publish-quiet",
-    "test": "npm run cucumber"
+    "snippets": "cucumber-js features/**/*.feature --dry-run --format snippets",
+    "steps-usage": "cucumber-js features/**/*.feature --dry-run",
+    "all": "cucumber-js features/**/*.feature",
+    "test": "cucumber-js"
   },
   "engines": {
     "node": ">=14"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hdorgeval/cucumber7-ts-starter.git"
+    "url": "git+https://github.com/tallyb/cucumber7-playwright.git"
   },
   "author": "Henri d'Orgeval",
   "license": "ISC",

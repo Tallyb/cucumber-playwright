@@ -1,0 +1,15 @@
+{
+	// See http://go.microsoft.com/fwlink/?LinkId=827846
+	// for the documentation about the extensions.json format
+	"recommendations": [
+		// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+		"esbenp.prettier-vscode",
+		"dbaeumer.vscode-eslint",
+		"oderwat.indent-rainbow",
+		"coenraads.bracket-pair-colorizer-2",
+		"wmaurer.change-case",
+		"alexkrechik.cucumberautocomplete",
+		"oouo-diogo-perdigao.docthis",
+		"eamodio.gitlens"
+	]
+}

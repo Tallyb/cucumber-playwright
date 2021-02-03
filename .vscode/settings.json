@@ -1,0 +1,50 @@
+{
+    "window.zoomLevel": 0,
+    "editor.tabSize": 2,
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/build": true,
+      "node_modules/**": true,
+    },
+    "editor.tabCompletion": "on",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": true,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.renderCharacters": true,
+    "editor.mouseWheelZoom": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true
+    },
+    "javascript.referencesCodeLens.enabled": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.implementationsCodeLens.enabled": true,
+    "git.autofetch": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.options": {
+        "extensions": [".js", ".ts"]
+    },
+    "eslint.validate": ["javascript","typescript"],
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "all",
+
+    "cucumberautocomplete.syncfeatures": "./features/**/*.feature",
+    "cucumberautocomplete.steps": [
+        "step-definitions/**/*.ts"
+    ],
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+    
+}

@@ -1,0 +1,30 @@
+name: Test features
+
+env:
+  CI: true
+  DEBUG: pw:api  
+
+on:
+  push:
+
+jobs:
+  run:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+    - uses: bahmutov/npm-install@v2 
+    - name: run features
+      run: npm run start
+    - name: generate report
+      run: npm run report
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-result-report
+        path: reports/cucumber-report.html
