@@ -35,7 +35,7 @@
     "@cucumber/html-formatter": "11.0.4",
     "@cucumber/pretty-formatter": "1.0.0-alpha.0",
     "@types/expect": "24.3.0",
-    "@types/lodash": "4.14.167",
+    "@types/lodash": "4.14.168",
     "@types/node": "14.14.20",
     "cucumber-console-formatter": "1.0.0",
     "cucumber-pretty": "^6.0.0",
