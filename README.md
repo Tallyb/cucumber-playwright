@@ -87,6 +87,3 @@ When running your tests localy, you can setup environment variables by customizi
 
 When running on a CI, you should setup your jobs with the expected environment variables.
 
-## To use a custom World Objet
-
-- cutomize the given Custom World Object : [custom-world](world/custom-world.ts)
