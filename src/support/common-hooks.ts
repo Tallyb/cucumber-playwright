@@ -1,4 +1,4 @@
-import { CustomWorld } from '../world';
+import { CustomWorld } from '.';
 import { Before, After, BeforeAll, AfterAll, Status } from '@cucumber/cucumber';
 import { chromium, ChromiumBrowser, LaunchOptions } from 'playwright';
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';

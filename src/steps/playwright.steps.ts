@@ -1,4 +1,4 @@
-import { CustomWorld } from '../world';
+import { CustomWorld } from '../support';
 import { Given, When } from '@cucumber/cucumber';
 
 Given('Go to the playwright docs website', async function (this: CustomWorld) {

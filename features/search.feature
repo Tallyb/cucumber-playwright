@@ -6,5 +6,5 @@ Feature: Playwright docs
 
   Scenario: Search documents
     When Enter search term "checkbox"
-    Then Snapshot "checkbox search"
+    Then Snapshot
 

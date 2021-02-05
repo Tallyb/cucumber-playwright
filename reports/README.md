@@ -1,5 +1,0 @@
-# cucumber-playwright
-
-## Reports folder
-
-this folder will contain the generated html report.

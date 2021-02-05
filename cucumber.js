@@ -2,7 +2,9 @@ const common = `
   --require-module ts-node/register
   --require src/hooks/*.ts 
   --require src/steps/**/*.steps.ts
-  --format json:reports/cucumber-report.json 
+  --format message:reports/report.ndjson
+  --format json:reports/report.json 
+  --format html:reports/report.html
   --format summary 
   --format progress-bar 
   --format-options ${JSON.stringify({ snippetInterface: 'async-await' })}
