@@ -1,4 +1,4 @@
-# cucumber7-playwright
+# cucumber-playwright
 
 A starter repo for writing E2E tests based on Cucumber(7) with Playwright using Typescript. 
 
@@ -12,7 +12,7 @@ This repository is based on the [Cucumber-typescript-starter](https://github.com
   - Running feature with video recording option
   - Report generated with last good image attached
   - Utilies function to help you with writing steps
-  - VScode configuration to debug a single feature or an only feature (run when located on the feature file)
+  - VScode configuration to debug a single feature or an only scenario (run when located on the feature file)
 
 ## Usage
 
