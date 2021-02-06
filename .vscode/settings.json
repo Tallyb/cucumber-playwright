@@ -40,7 +40,7 @@
 
     "cucumberautocomplete.syncfeatures": "./features/**/*.feature",
     "cucumberautocomplete.steps": [
-        "step-definitions/**/*.ts"
+        "src/steps/**/*.ts"
     ],
     "typescript.tsdk": "node_modules/typescript/lib",
     "editor.codeActionsOnSave": {

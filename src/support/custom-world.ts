@@ -6,18 +6,18 @@ export interface CucumberWorldConstructorParams {
   parameters: { [key: string]: string };
 }
 
-export class CustomWorld extends World {
-  public foo = false;
-  public debug = false;
-  public feature: messages.IPickle | undefined;
-  public context: BrowserContext | undefined;
-  public page: Page | undefined;
-  /**
-   *
-   */
+export interface ICustomWorld extends World {
+  debug: boolean;
+  feature?: messages.IPickle;
+  context?: BrowserContext;
+  page?: Page;
+}
+
+export class CustomWorld extends World implements ICustomWorld {
   constructor(options: IWorldOptions) {
     super(options);
   }
+  debug = false;
 }
 
 setWorldConstructor(CustomWorld);

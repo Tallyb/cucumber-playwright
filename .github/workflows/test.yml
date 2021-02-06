@@ -1,4 +1,4 @@
-name: Test features
+name: Test 
 
 env:
   CI: true
@@ -17,14 +17,12 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '14'
-    - uses: bahmutov/npm-install@v2 
+    - uses: bahmutov/npm-install@v1 
     - name: run features
       run: npm run test
-    - name: generate report
-      run: npm run report
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v2
       with:
         name: test-result-report
-        path: reports/cucumber-report.html
+        path: reports/report.html

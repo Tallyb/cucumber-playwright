@@ -1,21 +1,43 @@
 # cucumber7-playwright
 
-A starter repo for using Cucumber(7) with Playwright using Typescript. 
+A starter repo for writing E2E tests based on Cucumber(7) with Playwright using Typescript. 
 
 ## Kudos
 
 This repository is based on the [Cucumber-typescript-starter](https://github.com/hdorgeval/cucumber7-ts-starter/blob/main/package.json) repo. 
+## What's inside
+  - Typescript setup for writing steps with eslint/typescript and prettier
+  - Launching of Playwright browser before running all tests 
+  - Launching new context and page for each scenario
+  - Running feature with video recording option
+  - Report generated with last good image attached
+  - Utilies function to help you with writing steps
+  - VScode configuration to debug a single feature or an only feature (run when located on the feature file)
 
+## Usage
 
+Create a repo based on this template and start writing your tests. 
 
-## After cloning the repo
+## To run your tests
+`npm run test` or `npx cucumber-js` runs all tests
+`npm run test <feature name>` or `npx cucumber-js <feature name>` run the single feature
 
-- run the command `npm install`.
+## Debugging Features
 
-## To execute the tests locally
+### From CLI
 
-- run the command `npm test`.
+- `npm run start` - no debugging options
+- `npm run debug` - headful mode with APIs enables both APIs and debug options
+- `npm run api` - headless mode with debug apis
+- `npm run video` - headless mode vith video
 
+## In Visual Studio Code
+
+- Open the feature
+- Select the debug options in the VSCode debugger
+- Set breakpoints in the code
+
+To stop the feature, you can add the `Then debug` step inside your feature. It will stop your debugger.
 ## To choose a reporter
 
 The last reporter/formatter found on the cucumber-js command-line wins:
@@ -24,18 +46,7 @@ The last reporter/formatter found on the cucumber-js command-line wins:
 --format summary --format @cucumber/pretty-formatter --format cucumber-console-formatter
 ```
 
-In [package.json](package.json) file, modify the `cucumber` script to keep only your preferred formatter.
-
-## To debug a scenario in Visual Studio Code
-
-- tag the scenario with `@debug`
-- set the breakpoints in the typescript code
-- Start debugging
-
-## To run only specific scenarios
-
-- tag the scenario(s) with `@only`
-- run the command `npm run only`.
+In [cucumber.js](cucumber.js) file, modify the options.
 
 ## To ignore a scenario
 
@@ -52,38 +63,3 @@ In [package.json](package.json) file, modify the `cucumber` script to keep only 
 ## To view the html report of the last run
 
 - run the command `npm run report`.
-
-## To create a new step
-
-- first write the Given/When/Then sentence:
-
-  ```gherkin
-  Given I push "foo" on "bar"
-  ```
-
-- run the npm script:
-
-  ```sh
-  npm run snippets
-  ```
-
-- the script will report the missing step(s): you just need to copy and paste them in the step definitions file:
-
-  ```sh
-  Given('I push {string} on {string}', async function (string, string2) {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
-  });
-  ```
-
-## To use a custom option on the CLI
-
-With cucumber-js v7, you cannot have anymore custom options on the CLI.
-This is a breaking change with cucumber-js v6.
-
-You must instead use environment variables.
-
-When running your tests localy, you can setup environment variables by customizing the file [set-environment-variables.ts](env/set-environment-variables.ts).
-
-When running on a CI, you should setup your jobs with the expected environment variables.
-

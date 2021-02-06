@@ -5,39 +5,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
-      "request": "launch",
-      "protocol": "inspector",
-      "console": "integratedTerminal",
-      "name": "Launch Features",
-      "stopOnEntry": false,
-      "program": "${workspaceRoot}/node_modules/@cucumber/cucumber/bin/cucumber-js",
-      "args": [
-        "features/**/*.feature",
-        "--require",
-        "env/set-environment-variables.ts",
-        "--require",
-        "world/custom-world.ts",
-        "--require", 
-        "step-definitions/**/*.ts",
-        "--require",
-        "hooks/**/*.ts",
-        "--require-module",
-        "ts-node/register",
-        "--format-options" ,
-        "{\"snippetInterface\": \"async-await\"}",
-        "--format",
-        "summary",
-        "--tags",
-        "@debug",
-        "--publish-quiet"
-      ],
-      "cwd": "${workspaceRoot}",
-      "runtimeArgs": [
-        "--nolazy"],
-    "sourceMaps": true
-    },
-    {
       "name": "debug",
       "request": "launch",
       "runtimeArgs": [
@@ -74,25 +41,6 @@
       },
       "console": "internalConsole",
       "outputCapture": "std"
-    },
-    {
-      "name": "local_debug",
-      "request": "launch",
-      "runtimeArgs": [
-        "run-script",
-        "debug",
-        "${file}",
-      ],
-      "env": {
-        "DEBUG": "pw:api",
-        "PWDEBUG": "1",
-        "HOST": "local"
-      },
-      "runtimeExecutable": "npm",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "type": "pwa-node"
     },
     {
       "name": "Attach by Process ID",

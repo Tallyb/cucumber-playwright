@@ -62,3 +62,7 @@ export async function getStyleValue(
   const res = exp.exec(styleAttribute);
   return res && res.pop()?.trim();
 }
+
+export async function getTexts(page: Page, selector: string): Promise<Array<string | null>> {
+  return await page.$$eval(selector, (els) => els.map((e) => e.textContent));
+}
