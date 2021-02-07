@@ -26,7 +26,6 @@ Create a repo based on this template and start writing your tests.
 
 ### From CLI
 
-- `npm run start` - no debugging options
 - `npm run debug` - headful mode with APIs enables both APIs and debug options
 - `npm run api` - headless mode with debug apis
 - `npm run video` - headless mode vith video
