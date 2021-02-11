@@ -41,7 +41,7 @@
     "cucumber-pretty": "^6.0.0",
     "expect": "26.6.2",
     "rimraf": "3.0.2",
-    "playwright": "1.8.0"
+    "playwright": "1.8.1"
   },
   "devDependencies": {
     "@types/expect": "24.3.0",
