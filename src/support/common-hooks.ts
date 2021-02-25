@@ -1,5 +1,5 @@
 import { ICustomWorld } from './custom-world';
-import { Before, After, BeforeAll, AfterAll, Status } from '@cucumber/cucumber';
+import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@cucumber/cucumber';
 import { chromium, ChromiumBrowser, LaunchOptions } from 'playwright';
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 declare global {
@@ -10,6 +10,8 @@ declare global {
     }
   }
 }
+
+setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
 
 const browserOptions: LaunchOptions = {
   slowMo: 0,
