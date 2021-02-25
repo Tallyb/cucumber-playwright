@@ -1,9 +1,10 @@
 import { ICustomWorld } from '../support/custom-world';
 import { Then } from '@cucumber/cucumber';
+import { join } from 'path';
 
 Then('Snapshot {string}', async function (this: ICustomWorld, name: string) {
   const { page } = this;
-  await page?.screenshot({ path: `screenshots/${name}.png` });
+  await page?.screenshot({ path: join('screenshots', `${name}.png`) });
 });
 
 Then('Snapshot', async function (this: ICustomWorld) {
