@@ -40,7 +40,7 @@
     "cucumber-console-formatter": "1.0.0",
     "cucumber-pretty": "^6.0.0",
     "expect": "26.6.2",
-    "playwright": "^1.9.2",
+    "playwright": "^1.10.0",
     "rimraf": "3.0.2"
   },
   "devDependencies": {
