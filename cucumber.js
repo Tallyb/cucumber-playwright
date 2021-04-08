@@ -1,6 +1,7 @@
 const common = `
   --require-module ts-node/register
   --require src/**/*.ts
+  --format json:reports/report.json 
   --format message:reports/report.ndjson
   --format html:reports/report.html
   --format summary 
