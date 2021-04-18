@@ -1,12 +1,20 @@
 import { ICustomWorld } from './custom-world';
 import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@cucumber/cucumber';
-import { chromium, ChromiumBrowser, LaunchOptions } from 'playwright';
+import {
+  chromium,
+  ChromiumBrowser,
+  firefox,
+  FirefoxBrowser,
+  LaunchOptions,
+  webkit,
+  WebKitBrowser,
+} from 'playwright';
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace NodeJS {
     interface Global {
-      browser: ChromiumBrowser; //change to your favorite browser
+      browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser; //change to your favorite browser
     }
   }
 }
@@ -19,7 +27,16 @@ const browserOptions: LaunchOptions = {
 };
 
 BeforeAll(async function () {
-  global.browser = await chromium.launch(browserOptions); //change to your favorite browser
+  switch (process.env.BROWSER) {
+    case 'firefox':
+      global.browser = await firefox.launch(browserOptions);
+      break;
+    case 'webkit':
+      global.browser = await webkit.launch(browserOptions);
+      break;
+    default:
+      global.browser = await chromium.launch(browserOptions);
+  }
 });
 
 AfterAll(async function () {
