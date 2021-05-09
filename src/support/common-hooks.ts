@@ -43,10 +43,6 @@ BeforeAll(async function () {
   }
 });
 
-AfterAll(async function () {
-  await global.browser.close();
-});
-
 Before({ tags: '@ignore' }, async function () {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return 'skipped' as any;
@@ -77,4 +73,8 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
   }
   await this.page?.close();
   await this.context?.close();
+});
+
+AfterAll(async function () {
+  await global.browser.close();
 });
