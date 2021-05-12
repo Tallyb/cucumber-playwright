@@ -1,6 +1,6 @@
 {
   "name": "cucumber-playwright",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Starter project to write and debug cucumber-js features with Playwright",
   "main": "index.js",
   "scripts": {
