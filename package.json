@@ -55,7 +55,7 @@
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "^7.23.2",
-    "open": "^8.0.8",
+    "open": "^8.0.9",
     "prettier": "2.3.0",
     "standard-version": "^9.3.0",
     "ts-node": "^9.1.1",
