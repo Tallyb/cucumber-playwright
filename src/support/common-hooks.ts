@@ -2,46 +2,57 @@ import config from '../../config';
 import { ICustomWorld } from './custom-world';
 import { AllPagesObject } from '../pages/all-pages-object';
 import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@cucumber/cucumber';
+import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 import {
   chromium,
   ChromiumBrowser,
   firefox,
   FirefoxBrowser,
-  LaunchOptions,
   webkit,
   WebKitBrowser,
 } from 'playwright';
-import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace NodeJS {
     interface Global {
-      browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser; //change to your favorite browser
+      browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
     }
   }
 }
 
 setDefaultTimeout(process.env.PWDEBUG ? -1 : config.defaultTimeout);
 
-const browserOptions: LaunchOptions = {
-  slowMo: 0,
-  args: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream'],
-  firefoxUserPrefs: {
-    'media.navigator.streams.fake': true,
-    'media.navigator.permission.disabled': true,
-  },
-};
+BeforeAll(async function (this: ICustomWorld) {
+  const commonBrowserOptions = {
+    headless: config.headless,
+    slowMo: config.runSlow,
+  };
 
-BeforeAll(async function () {
   switch (process.env.BROWSER) {
     case 'firefox':
-      global.browser = await firefox.launch(browserOptions);
+      global.browser = await firefox.launch({
+        ...commonBrowserOptions,
+        firefoxUserPrefs: {
+          'media.navigator.streams.fake': true,
+          'media.navigator.permission.disabled': true,
+        },
+      });
       break;
+
     case 'webkit':
-      global.browser = await webkit.launch(browserOptions);
+      global.browser = await webkit.launch(commonBrowserOptions);
       break;
+
     default:
-      global.browser = await chromium.launch(browserOptions);
+      global.browser = await chromium.launch({
+        ...commonBrowserOptions,
+        args: [
+          '--use-fake-ui-for-media-stream',
+          '--use-fake-device-for-media-stream',
+          '--no-sandbox',
+          '--disable-dev-shm-usage',
+        ],
+      });
   }
 });
 
