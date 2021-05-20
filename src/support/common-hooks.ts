@@ -24,11 +24,11 @@ setDefaultTimeout(process.env.PWDEBUG ? -1 : config.defaultTimeout);
 
 BeforeAll(async function (this: ICustomWorld) {
   const commonBrowserOptions = {
-    headless: config.headless,
+    headless: config.runHeadless,
     slowMo: config.runSlow,
   };
 
-  switch (process.env.BROWSER) {
+  switch (config.browser) {
     case 'firefox':
       global.browser = await firefox.launch({
         ...commonBrowserOptions,
