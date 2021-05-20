@@ -3,8 +3,7 @@ import { Then } from '@cucumber/cucumber';
 import { join } from 'path';
 
 Then('Snapshot {string}', async function (this: ICustomWorld, name: string) {
-  const { page } = this;
-  await page?.screenshot({ path: join('screenshots', `${name}.png`) });
+  await this.pagesObj?.basePage.screenshot(name);
 });
 
 Then('Snapshot', async function (this: ICustomWorld) {

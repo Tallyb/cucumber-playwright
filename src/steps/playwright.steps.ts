@@ -1,18 +1,10 @@
 import { ICustomWorld } from '../support/custom-world';
 import { Given, When } from '@cucumber/cucumber';
 
-Given('Go to the playwright website', async function (this: ICustomWorld) {
-  const { page } = this;
-  await page?.goto('https://playwright.dev');
-  await page?.waitForSelector('nav >> a >> text="Playwright"');
+Given('I go to the playwright website', async function (this: ICustomWorld) {
+  await this.pagesObj?.homePage.goToHomePage();
 });
 
-When('Change theme to {string} mode', async function (this: ICustomWorld, mode: string) {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const page = this.page!;
-  const current = await page.getAttribute('html', 'data-theme');
-  if (current !== mode) {
-    await page.click('.navbar >> .react-toggle');
-  }
-  await page.waitForSelector(`html[data-theme=${mode}]`);
+When('I change the theme to {string} mode', async function (this: ICustomWorld, mode: string) {
+  await this.pagesObj?.homePage.changeThemeTo(mode);
 });

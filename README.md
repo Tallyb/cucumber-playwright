@@ -15,6 +15,7 @@ This repository is based on the [Cucumber-typescript-starter](https://github.com
 - Launching new context and page for each scenario
 - Running feature with video recording option
 - Report generated with last good image attached
+- Page Object Design Pattern
 - Utilies function to help you with writing steps
 - VScode configuration to debug a single feature or an only scenario (run when located on the feature file)
 
@@ -36,7 +37,7 @@ On Linux and Mac you can write:
 
 `BROWSER=firefox npm run test` or `BROWSER=firefox npx cucumber-js` runs all tests using Firefox
 
-One Windows you need to write
+On Windows you need to write
 
 ```
 set BROWSER=firefox

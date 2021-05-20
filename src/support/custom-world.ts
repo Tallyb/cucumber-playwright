@@ -1,3 +1,4 @@
+import { AllPagesObject } from '../pages/all-pages-object';
 import { setWorldConstructor, World, IWorldOptions } from '@cucumber/cucumber';
 import { messages } from '@cucumber/messages';
 import { BrowserContext, Page } from 'playwright';
@@ -11,6 +12,7 @@ export interface ICustomWorld extends World {
   feature?: messages.IPickle;
   context?: BrowserContext;
   page?: Page;
+  pagesObj?: AllPagesObject;
 }
 
 export class CustomWorld extends World implements ICustomWorld {

@@ -1,4 +1,5 @@
 import { ICustomWorld } from './custom-world';
+import { AllPagesObject } from '../pages/all-pages-object';
 import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@cucumber/cucumber';
 import {
   chromium,
@@ -59,6 +60,7 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
   });
   this.page = await this.context.newPage();
+  this.pagesObj = new AllPagesObject(this.page, this.context);
   this.feature = pickle;
 });
 
