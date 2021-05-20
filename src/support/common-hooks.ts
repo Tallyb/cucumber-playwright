@@ -1,3 +1,4 @@
+import config from '../../config';
 import { ICustomWorld } from './custom-world';
 import { AllPagesObject } from '../pages/all-pages-object';
 import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@cucumber/cucumber';
@@ -20,7 +21,7 @@ declare global {
   }
 }
 
-setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
+setDefaultTimeout(process.env.PWDEBUG ? -1 : config.defaultTimeout);
 
 const browserOptions: LaunchOptions = {
   slowMo: 0,
@@ -57,7 +58,7 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
   // customize the [browser context](https://playwright.dev/docs/next/api/class-browser#browsernewcontextoptions)
   this.context = await global.browser.newContext({
     acceptDownloads: true,
-    recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
+    recordVideo: config.recordVideos ? { dir: 'screenshots' } : undefined,
   });
   this.page = await this.context.newPage();
   this.pagesObj = new AllPagesObject(this.page, this.context);
