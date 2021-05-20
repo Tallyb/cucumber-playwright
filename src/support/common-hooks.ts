@@ -69,8 +69,8 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
   if (result) {
     await this.attach(`Status: ${result?.status}. Duration:${result.duration?.seconds}}s`);
 
-    if (result.status !== Status.PASSED) {
-      const image = await this.page?.screenshot();
+    if (result.status === Status.FAILED) {
+      const image = await this.pagesObj?.basePage.screenshot(`${this.feature?.name}`);
       image && (await this.attach(image, 'image/png'));
     }
   }
