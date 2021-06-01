@@ -38,7 +38,7 @@
     "@cucumber/pretty-formatter": "1.0.0-alpha.0",
     "cucumber-console-formatter": "1.0.0",
     "cucumber-pretty": "^6.0.0",
-    "expect": "27.0.1",
+    "expect": "27.0.2",
     "playwright": "^1.11.1",
     "rimraf": "3.0.2"
   },
