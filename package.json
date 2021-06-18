@@ -43,7 +43,7 @@
     "rimraf": "3.0.2"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^7.2.1",
+    "@cucumber/cucumber": "^7.3.0",
     "@types/expect": "24.3.0",
     "@types/lodash": "4.14.170",
     "@types/node": "15.12.2",
