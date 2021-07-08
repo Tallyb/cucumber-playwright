@@ -76,5 +76,5 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
 });
 
 AfterAll(async function () {
-  await global.browser.close();
+  await browser.close();
 });
