@@ -10,13 +10,13 @@ import {
   WebKitBrowser,
 } from 'playwright';
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
+
+// eslint-disable-next-line no-var
+var browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
+
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace NodeJS {
-    interface Global {
-      browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser; //change to your favorite browser
-    }
-  }
+  // eslint-disable-next-line no-var
+  var browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 }
 
 setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
@@ -33,13 +33,13 @@ const browserOptions: LaunchOptions = {
 BeforeAll(async function () {
   switch (process.env.BROWSER) {
     case 'firefox':
-      global.browser = await firefox.launch(browserOptions);
+      browser = await firefox.launch(browserOptions);
       break;
     case 'webkit':
-      global.browser = await webkit.launch(browserOptions);
+      browser = await webkit.launch(browserOptions);
       break;
     default:
-      global.browser = await chromium.launch(browserOptions);
+      browser = await chromium.launch(browserOptions);
   }
 });
 
@@ -54,7 +54,7 @@ Before({ tags: '@debug' }, async function (this: ICustomWorld) {
 
 Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
   // customize the [browser context](https://playwright.dev/docs/next/api/class-browser#browsernewcontextoptions)
-  this.context = await global.browser.newContext({
+  this.context = await browser.newContext({
     acceptDownloads: true,
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
   });
