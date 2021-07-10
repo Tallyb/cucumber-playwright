@@ -8,7 +8,7 @@ export interface CucumberWorldConstructorParams {
 
 export interface ICustomWorld extends World {
   debug: boolean;
-  feature?: messages.IPickle;
+  feature?: messages.ITestCase;
   context?: BrowserContext;
   page?: Page;
 }

@@ -1,5 +1,5 @@
 {
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "editor.tabSize": 2,
     "files.exclude": {
         "**/.DS_Store": true,
