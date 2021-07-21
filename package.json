@@ -42,7 +42,7 @@
     "rimraf": "3.0.2"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^7.3.0",
+    "@cucumber/cucumber": "^7.3.1",
     "@cucumber/pretty-formatter": "^1.0.0-alpha.1",
     "@types/expect": "24.3.0",
     "@types/lodash": "4.14.171",
