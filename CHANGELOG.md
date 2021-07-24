@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/tallyb/cucumber7-playwright/compare/v1.1.1...v1.2.0) (2021-07-24)
+
+
+### Features
+
+* **app:** Add console.log to reports ([4e176d0](https://github.com/tallyb/cucumber7-playwright/commit/4e176d0fa7f2d120ea10db0caa1f84084c92a7c6))
+
 ### [1.1.1](https://github.com/tallyb/cucumber7-playwright/compare/v1.1.0...v1.1.1) (2021-07-24)
 
 
