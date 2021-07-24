@@ -43,6 +43,10 @@ set BROWSER=firefox
 npm run test
 ```
 
+## Working with Page Objects
+
+I am not fond of the Page Object Model (POM) for testing. It feels like a leftover from Java world, and I do not think it fits the Javascript world. However, you can check [this PR](https://github.com/Tallyb/cucumber-playwright/pull/95/files) to see POM implementation. 
+
 ## Debugging Features
 
 ### From CLI
