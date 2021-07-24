@@ -4,6 +4,7 @@ import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@
 import {
   chromium,
   ChromiumBrowser,
+  ConsoleMessage,
   firefox,
   FirefoxBrowser,
   webkit,
@@ -49,7 +50,13 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
     acceptDownloads: true,
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
   });
+
   this.page = await this.context.newPage();
+  this.page.on('console', async (msg) => {
+    if (msg.type() === 'log') {
+      await this.attach(msg.text());
+    }
+  });
   this.feature = pickle;
 });
 
