@@ -4,7 +4,6 @@ import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@
 import {
   chromium,
   ChromiumBrowser,
-  ConsoleMessage,
   firefox,
   FirefoxBrowser,
   webkit,
