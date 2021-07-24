@@ -21,6 +21,8 @@ jobs:
       with:
         node-version: ${{ matrix.node }}
     - uses: bahmutov/npm-install@v1 
+    - name: run lint
+      run: npm run lint
     - name: run features
       run: npm run test
     - name: Upload test results
