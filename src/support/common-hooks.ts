@@ -1,11 +1,11 @@
 import { ICustomWorld } from './custom-world';
+import { browserOptions } from './config';
 import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@cucumber/cucumber';
 import {
   chromium,
   ChromiumBrowser,
   firefox,
   FirefoxBrowser,
-  LaunchOptions,
   webkit,
   WebKitBrowser,
 } from 'playwright';
@@ -20,15 +20,6 @@ declare global {
 }
 
 setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
-
-const browserOptions: LaunchOptions = {
-  slowMo: 0,
-  args: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream'],
-  firefoxUserPrefs: {
-    'media.navigator.streams.fake': true,
-    'media.navigator.permission.disabled': true,
-  },
-};
 
 BeforeAll(async function () {
   switch (process.env.BROWSER) {
