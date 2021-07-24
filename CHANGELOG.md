@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/tallyb/cucumber7-playwright/compare/v1.1.0...v1.1.1) (2021-07-24)
+
+
+### Bug Fixes
+
+* **app:** Extract config to separate file ([b49a6b1](https://github.com/tallyb/cucumber7-playwright/commit/b49a6b18625fb3c5ec1d99152989b135855ce008))
+* **app:** Fix browser global error ([e24230c](https://github.com/tallyb/cucumber7-playwright/commit/e24230ced2d2b0deaf387c1f200a70d1c2c33a64))
+* **app:** Fix messages type error ([b1866bc](https://github.com/tallyb/cucumber7-playwright/commit/b1866bcce7b207966d2c43715cc58b454c9d67bc))
+* **app:** Update hooks to match node types 16 ([ff08e71](https://github.com/tallyb/cucumber7-playwright/commit/ff08e712b65125aa399ed13d52531a084a099568))
+
 ## [1.1.0](https://github.com/tallyb/cucumber7-playwright/compare/v1.0.1...v1.1.0) (2021-05-12)
 
 
