@@ -41,7 +41,7 @@
     "cucumber-pretty": "^6.0.0",
     "cucumber-html-reporter": "^5.5.0",
     "expect": "27.0.6",
-    "playwright": "^1.14.0"
+    "playwright": "^1.14.1"
   },
   "devDependencies": {
     "@types/expect": "24.3.0",
