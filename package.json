@@ -40,7 +40,7 @@
     "cucumber-console-formatter": "1.0.0",
     "cucumber-pretty": "^6.0.0",
     "cucumber-html-reporter": "^5.5.0",
-    "expect": "27.0.6",
+    "expect": "27.1.0",
     "playwright": "^1.14.1"
   },
   "devDependencies": {
