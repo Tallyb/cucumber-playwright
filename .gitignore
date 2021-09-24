@@ -66,6 +66,8 @@ typings/
 reports/*.html
 reports/*.json
 
+traces/
+
 #build
 build
 dist/
