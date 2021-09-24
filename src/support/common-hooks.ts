@@ -12,10 +12,8 @@ import {
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 import { ensureDir } from 'fs-extra';
 
-// eslint-disable-next-line no-var
-var browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
-var testName: string;
-var tracesDir: string = 'traces';
+let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
+const tracesDir = 'traces';
 
 declare global {
   // eslint-disable-next-line no-var
@@ -49,8 +47,7 @@ Before({ tags: '@debug' }, async function (this: ICustomWorld) {
 
 Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
   const time = new Date().toISOString().split('.')[0];
-  const suffix = time.replace(/:|T/g, '-');
-  testName = pickle.name.replace(/\W/g, '-')+'-' + suffix;
+  this.testName = pickle.name.replace(/\W/g, '-') + '-' + time.replace(/:|T/g, '-');
   // customize the [browser context](https://playwright.dev/docs/next/api/class-browser#browsernewcontextoptions)
   this.context = await browser.newContext({
     acceptDownloads: true,
@@ -74,7 +71,7 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
     if (result.status !== Status.PASSED) {
       const image = await this.page?.screenshot();
       image && (await this.attach(image, 'image/png'));
-      await this.context?.tracing.stop({ path: `${tracesDir}/${testName}-trace.zip` });
+      await this.context?.tracing.stop({ path: `${tracesDir}/${this.testName}-trace.zip` });
     }
   }
   await this.page?.close();
