@@ -40,7 +40,7 @@
     "@types/fs-extra": "^9.0.13",
     "cucumber-console-formatter": "1.0.0",
     "cucumber-html-reporter": "^5.5.0",
-    "expect": "27.2.2",
+    "expect": "27.2.4",
     "playwright": "1.15.0"
   },
   "devDependencies": {
