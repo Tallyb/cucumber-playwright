@@ -34,14 +34,14 @@
   },
   "homepage": "https://github.com/tallyb/cucumber-playwright#readme",
   "dependencies": {
-    "@cucumber/cucumber": "^7.3.1",
+    "@cucumber/cucumber": "7.3.1",
     "@cucumber/html-formatter": "17.0.0",
-    "@cucumber/pretty-formatter": "^1.0.0-alpha.1",
-    "@types/fs-extra": "^9.0.13",
+    "@cucumber/pretty-formatter": "1.0.0-alpha.1",
+    "@types/fs-extra": "9.0.13",
     "cucumber-console-formatter": "1.0.0",
-    "cucumber-html-reporter": "^5.5.0",
+    "cucumber-html-reporter": "5.5.0",
     "expect": "27.3.1",
-    "playwright": "^1.16.0"
+    "playwright": "1.16.0"
   },
   "devDependencies": {
     "@types/expect": "24.3.0",
@@ -59,7 +59,7 @@
     "prettier": "2.4.1",
     "rimraf": "3.0.2",
     "standard-version": "9.3.2",
-    "ts-node": "^10.3.1",
+    "ts-node": "10.3.1",
     "typescript": "4.4.4"
   }
 }
