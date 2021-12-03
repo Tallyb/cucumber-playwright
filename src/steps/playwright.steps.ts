@@ -13,7 +13,7 @@ When('Change theme to {string} mode', async function (this: ICustomWorld, mode: 
   const page = this.page!;
   const current = await page.getAttribute('html', 'data-theme');
   if (current !== mode) {
-    await page.click('.navbar >> .react-toggle');
+    await page.click('nav >> div:has(input[type="checkbox"]) >> div[role="button"]');
   }
   await page.waitForSelector(`html[data-theme=${mode}]`);
 });
