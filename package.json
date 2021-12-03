@@ -18,7 +18,8 @@
     "snippets": "cucumber-js features/**/*.feature --dry-run --format snippets",
     "steps-usage": "cucumber-js features/**/*.feature --dry-run",
     "all": "cucumber-js features/**/*.feature",
-    "test": "cucumber-js"
+    "test": "cucumber-js",
+    "test:parallel": "cucumber-js --parallel=2"
   },
   "engines": {
     "node": ">=14"
