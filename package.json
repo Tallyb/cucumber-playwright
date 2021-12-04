@@ -56,7 +56,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "fs-extra": "10.0.0",
     "open": "8.4.0",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "rimraf": "3.0.2",
     "standard-version": "9.3.2",
     "ts-node": "10.4.0",
