@@ -1,10 +1,11 @@
 import { ICustomWorld } from '../support/custom-world';
+import { config } from '../support/config';
 import { Given, When, Then } from '@cucumber/cucumber';
 import expect from 'expect';
 
 Given('Go to the playwright website', async function (this: ICustomWorld) {
   const { page } = this;
-  await page?.goto('https://playwright.dev');
+  await page?.goto(config.BASE_URL);
   await page?.waitForSelector('nav >> a >> text="Playwright"');
 });
 

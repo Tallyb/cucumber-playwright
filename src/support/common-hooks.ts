@@ -1,5 +1,5 @@
 import { ICustomWorld } from './custom-world';
-import { browserOptions } from './config';
+import { config } from './config';
 import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@cucumber/cucumber';
 import {
   chromium,
@@ -25,13 +25,13 @@ setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
 BeforeAll(async function () {
   switch (process.env.BROWSER) {
     case 'firefox':
-      browser = await firefox.launch(browserOptions);
+      browser = await firefox.launch(config.browserOptions);
       break;
     case 'webkit':
-      browser = await webkit.launch(browserOptions);
+      browser = await webkit.launch(config.browserOptions);
       break;
     default:
-      browser = await chromium.launch(browserOptions);
+      browser = await chromium.launch(config.browserOptions);
   }
   await ensureDir(tracesDir);
 });
