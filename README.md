@@ -6,7 +6,7 @@ A starter repo for writing E2E tests based on Cucumber(7) with Playwright using 
 
 ## Kudos
 
-This repository is based on the [Cucumber-typescript-starter](https://github.com/hdorgeval/cucumber7-ts-starter/blob/main/package.json) repo.
+This repository is based on the [Cucumber-typescript-starter](https://github.com/hdorgeval/cucumber7-ts-starter/) repo.
 
 ## What's inside
 
