@@ -11,4 +11,5 @@ const browserOptions: LaunchOptions = {
 export const config = {
   browserOptions,
   BASE_URL: 'https://playwright.dev',
+  IMG_THRESHOLD: { threshold: 0.4 },
 };

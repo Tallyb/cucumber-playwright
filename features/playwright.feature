@@ -11,3 +11,7 @@ Feature: Playwright docs
     When Change theme to "dark" mode
     Then Snapshot
 
+  Scenario: Change theme and compare image
+    When Change theme to "light" mode
+    Then We see "light" mode
+    And the screen matches the base image with timeout of 1000
