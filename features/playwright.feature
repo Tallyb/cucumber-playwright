@@ -14,4 +14,6 @@ Feature: Playwright docs
   Scenario: Change theme and compare image
     When Change theme to "light" mode
     Then We see "light" mode
-    And the screen matches the base image with timeout of 1000
+    # Next step is commented out as it will fail on CI, you need to manually upload your base screenshot.
+    # So, uncomment it locally to generate your file, upload it to your repo and then commit the step uncommented.
+    # Then the screen matches the base image with timeout of 1000
