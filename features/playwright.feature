@@ -14,4 +14,4 @@ Feature: Playwright docs
   Scenario: Change theme and compare image
     When Change theme to "light" mode
     Then We see "light" mode
-    And the screen matches the base image with timeout of 2000
+    And the screen matches the base image with timeout of 1000

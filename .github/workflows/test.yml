@@ -30,6 +30,5 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v2
       with:
-        name: screenshots
-        path: screenshots/
-
+        name: test-result-report
+        path: reports/report.html
