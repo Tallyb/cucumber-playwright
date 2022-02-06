@@ -41,7 +41,7 @@
     "@types/fs-extra": "9.0.13",
     "cucumber-console-formatter": "1.0.0",
     "cucumber-html-reporter": "5.5.0",
-    "expect": "27.4.6",
+    "expect": "27.5.0",
     "playwright": "1.18.0"
   },
   "devDependencies": {
