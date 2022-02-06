@@ -1,6 +1,6 @@
 import { ICustomWorld } from './custom-world';
 import { config } from './config';
-import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@cucumber/cucumber';
+import { After, AfterAll, Before, BeforeAll, setDefaultTimeout, Status } from '@cucumber/cucumber';
 import {
   chromium,
   ChromiumBrowser,
@@ -23,7 +23,7 @@ declare global {
 setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
 
 BeforeAll(async function () {
-  switch (process.env.BROWSER) {
+  switch (config.browser) {
     case 'firefox':
       browser = await firefox.launch(config.browserOptions);
       break;
