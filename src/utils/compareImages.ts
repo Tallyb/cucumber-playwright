@@ -24,7 +24,7 @@ export async function compareToBaseImage(
     /-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}/,
     '',
   );
-  const baseImagePath = `screenshots/${customWorld.feature?.name}/${process.platform}/${testNameWithoutDate}.png`;
+  const baseImagePath = `screenshots/${customWorld.feature?.uri}/${process.platform}/${config.browser}/${testNameWithoutDate}.png`;
   const baseImgExist = await pathExists(baseImagePath);
   if (baseImgExist) {
     baseImage = PNG.sync.read(fs.readFileSync(baseImagePath));
