@@ -42,7 +42,7 @@
     "cucumber-console-formatter": "1.0.0",
     "cucumber-html-reporter": "5.5.0",
     "expect": "27.5.1",
-    "playwright": "1.18.1"
+    "playwright": "1.19.0"
   },
   "devDependencies": {
     "@types/expect": "24.3.0",
