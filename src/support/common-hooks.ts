@@ -23,7 +23,7 @@ declare global {
 setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
 
 BeforeAll(async function () {
-  switch (process.env.BROWSER) {
+  switch (config.browser) {
     case 'firefox':
       browser = await firefox.launch(config.browserOptions);
       break;

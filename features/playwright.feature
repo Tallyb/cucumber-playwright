@@ -6,8 +6,7 @@ Feature: Playwright docs
 
   Scenario: Change theme
     When Change theme to "light" mode
-    Then Snapshot
+    And Screen matches the base image "Light Mode"
     Then We see "light" mode
     When Change theme to "dark" mode
-    Then Snapshot
-
+    And Screen matches the base image "Dark Mode"

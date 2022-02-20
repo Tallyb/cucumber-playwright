@@ -9,6 +9,8 @@ const browserOptions: LaunchOptions = {
 };
 
 export const config = {
+  browser: process.env.BROWSER || 'chromium',
   browserOptions,
   BASE_URL: 'https://playwright.dev',
+  IMG_THRESHOLD: { threshold: 0.4 },
 };
