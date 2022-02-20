@@ -6,7 +6,7 @@ Feature: Playwright docs
 
   Scenario: Change theme
     When Change theme to "light" mode
-    And Screen matches the base image "Light Mode"
+    # And Screen matches the base image "Light Mode"
     Then We see "light" mode
     When Change theme to "dark" mode
-    And Screen matches the base image "Dark Mode"
+# And Screen matches the base image "Dark Mode"
