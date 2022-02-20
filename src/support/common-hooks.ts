@@ -52,6 +52,7 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
   this.context = await browser.newContext({
     acceptDownloads: true,
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
+    viewport: { width: 1440, height: 900 },
   });
 
   await this.context.tracing.start({ screenshots: true, snapshots: true });

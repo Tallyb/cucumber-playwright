@@ -20,7 +20,7 @@
     "all": "cucumber-js features/**/*.feature",
     "test": "cucumber-js",
     "test:parallel": "cucumber-js --parallel=2",
-    "run-docker": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:latest /bin/bash"
+    "docker": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:latest /bin/bash"
   },
   "engines": {
     "node": ">=14"
