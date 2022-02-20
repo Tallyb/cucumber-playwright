@@ -46,8 +46,8 @@ Before({ tags: '@debug' }, async function (this: ICustomWorld) {
 });
 
 Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
-  const time = new Date().toISOString().split('.')[0];
-  this.testName = pickle.name.replace(/\W/g, '-') + '-' + time.replace(/:|T/g, '-');
+  this.startTime = new Date();
+  this.testName = pickle.name.replace(/\W/g, '-');
   // customize the [browser context](https://playwright.dev/docs/next/api/class-browser#browsernewcontextoptions)
   this.context = await browser.newContext({
     acceptDownloads: true,
@@ -71,7 +71,11 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
     if (result.status !== Status.PASSED) {
       const image = await this.page?.screenshot();
       image && (await this.attach(image, 'image/png'));
-      await this.context?.tracing.stop({ path: `${tracesDir}/${this.testName}-trace.zip` });
+      await this.context?.tracing.stop({
+        path: `${tracesDir}/${this.testName}-${
+          this.startTime?.toISOString().split('.')[0]
+        }trace.zip`,
+      });
     }
   }
   await this.page?.close();

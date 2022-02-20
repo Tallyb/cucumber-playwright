@@ -13,6 +13,7 @@ export interface ICustomWorld extends World {
   page?: Page;
 
   testName?: string;
+  startTime?: Date;
 }
 
 export class CustomWorld extends World implements ICustomWorld {
