@@ -49,9 +49,10 @@ export async function compareToBaseImage(
   } else {
     await ensureFile(baseImagePath);
     writeFileSync(baseImagePath, screenshot);
-    throw new Error(
+    customWorld.log(
       `The base Image doesn't exist, a screenshot was taken to ${baseImagePath} so it can be used for next run`,
     );
+    return;
   }
   const img1 = PNG.sync.read(screenshot);
   const difference = getDifference(img1, baseImage, threshold);
