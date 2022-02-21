@@ -13,4 +13,5 @@ export const config = {
   browserOptions,
   BASE_URL: 'https://playwright.dev',
   IMG_THRESHOLD: { threshold: 0.4 },
+  BASE_API_URL: 'https://www.boredapi.com/api/',
 };
