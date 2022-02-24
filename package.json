@@ -46,7 +46,7 @@
     "cucumber-html-reporter": "5.5.0",
     "expect": "27.5.1",
     "pixelmatch": "5.2.1",
-    "playwright": "1.19.1",
+    "playwright": "1.19.2",
     "pngjs": "6.0.0"
   },
   "devDependencies": {
