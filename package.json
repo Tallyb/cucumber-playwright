@@ -20,7 +20,8 @@
     "all": "cucumber-js features/**/*.feature",
     "test": "cucumber-js",
     "test:parallel": "cucumber-js --parallel=2",
-    "docker": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:latest /bin/bash"
+    "docker": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:latest /bin/bash",
+    "allure": "allure serve reports/allure-results"
   },
   "engines": {
     "node": ">=14"
@@ -41,6 +42,7 @@
     "@cucumber/messages": "^18.0.0",
     "@cucumber/pretty-formatter": "1.0.0-alpha.2",
     "@types/fs-extra": "9.0.13",
+    "allure-cucumberjs8": "^2.0.0-beta.15",
     "axios": "^0.26.0",
     "axois": "^0.0.1-security",
     "cucumber-console-formatter": "1.0.0",

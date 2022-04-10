@@ -16,6 +16,7 @@ export default {
     'summary',
     'progress-bar',
     '@cucumber/pretty-formatter',
+    './src/support/reporters/allure-reporter.ts',
   ],
   formatOptions: { snippetInterface: 'async-await' },
   worldParameters: getWorldParams(),
