@@ -15,6 +15,7 @@ This repository is based on the [Cucumber-typescript-starter](https://github.com
 - Launching new context and page for each scenario
 - Running feature with video recording option
 - Report generated with last good image attached
+- Allure reports
 - Utilies function to help you with writing steps
 - VScode configuration to debug a single feature or an only scenario (run when located on the feature file)
 
@@ -88,3 +89,7 @@ In [cucumber.js](cucumber.js) file, modify the options.
 ## To view the html report of the last run
 
 - run the command `npm run report`.
+
+## To view allure report
+- run the command `npm run allure`.
+
