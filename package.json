@@ -43,7 +43,7 @@
     "@cucumber/pretty-formatter": "1.0.0-alpha.2",
     "@types/fs-extra": "9.0.13",
     "allure-cucumberjs8": "^2.0.0-beta.15",
-    "axios": "^0.26.0",
+    "axios": "^0.27.0",
     "axois": "^0.0.1-security",
     "cucumber-console-formatter": "1.0.0",
     "cucumber-html-reporter": "5.5.0",
