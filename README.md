@@ -90,6 +90,10 @@ In [cucumber.js](cucumber.js) file, modify the options.
 
 - run the command `npm run report`.
 
+### At least in Lubuntu 20.04 to open the html report
+
+- Modify the `package.json` in `"report": "xdg-open reports/report.html"`
+
 ## To view allure report
 - run the command `npm run allure`.
 
