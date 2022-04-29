@@ -1,5 +1,5 @@
 import { ICustomWorld } from '../support/custom-world';
-import expect from 'expect';
+import { expect } from '@playwright/test';
 import { Given } from '@cucumber/cucumber';
 import { AxiosResponse } from 'axios';
 

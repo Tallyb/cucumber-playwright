@@ -1,4 +1,4 @@
-import { LaunchOptions } from 'playwright';
+import { LaunchOptions } from '@playwright/test';
 const browserOptions: LaunchOptions = {
   slowMo: 0,
   args: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream'],

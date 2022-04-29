@@ -1,7 +1,7 @@
 import { ICustomWorld } from '../support/custom-world';
 import { config } from '../support/config';
 import { Given, When, Then } from '@cucumber/cucumber';
-import expect from 'expect';
+import { expect } from '@playwright/test';
 
 Given('Go to the playwright website', async function (this: ICustomWorld) {
   const page = this.page!;

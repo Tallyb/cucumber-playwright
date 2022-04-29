@@ -8,7 +8,8 @@ import {
   FirefoxBrowser,
   webkit,
   WebKitBrowser,
-} from 'playwright';
+  ConsoleMessage,
+} from '@playwright/test';
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 import { ensureDir } from 'fs-extra';
 import axios from 'axios';
@@ -66,7 +67,7 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
 
   await this.context.tracing.start({ screenshots: true, snapshots: true });
   this.page = await this.context.newPage();
-  this.page.on('console', async (msg) => {
+  this.page.on('console', async (msg: ConsoleMessage) => {
     if (msg.type() === 'log') {
       await this.attach(msg.text());
     }
