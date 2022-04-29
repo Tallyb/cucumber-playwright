@@ -24,6 +24,8 @@ jobs:
       run: npm ci
     - name: run lint
       run: npm run lint
+    - name: install Playwright
+      run: npx playwright install --with-deps > /dev/null
     - name: run features
       run: npm run test
     - name: Upload test results
