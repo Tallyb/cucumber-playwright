@@ -11,9 +11,10 @@ Given('Go to the playwright website', async function (this: ICustomWorld) {
 
 When('Change theme to {string} mode', async function (this: ICustomWorld, mode: string) {
   const page = this.page!;
-  const current = await page.getAttribute('html', 'data-theme');
+  const html = page.locator('html');
+  const current = await html.getAttribute('data-theme');
   if (current !== mode) {
-    await page.locator('nav >> div:has(input[type="checkbox"]) >> div[role="button"]').click();
+    await page.locator('nav >> button[title*="dark and light mode"]').click();
   }
   await page.waitForSelector(`html[data-theme=${mode}]`);
 });
