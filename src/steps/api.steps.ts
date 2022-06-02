@@ -3,7 +3,7 @@ import { expect } from '@playwright/test';
 import { Given } from '@cucumber/cucumber';
 import { AxiosResponse } from 'axios';
 
-Given('A bored activity is recieved', async function (this: ICustomWorld) {
-  const response: AxiosResponse | undefined = await this.server?.get('activity');
+Given('A cat fact is recieved', async function (this: ICustomWorld) {
+  const response: AxiosResponse | undefined = await this.server?.get('facts');
   expect(response).toBeDefined();
 });

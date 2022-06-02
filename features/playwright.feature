@@ -5,7 +5,7 @@ Feature: Playwright docs
     Given Go to the playwright website
 
   Scenario: Change theme
-    Given A bored activity is recieved
+    Given A cat fact is recieved
     When Change theme to "light" mode
     # And Screen matches the base image "Light Mode"
     Then We see "light" mode
