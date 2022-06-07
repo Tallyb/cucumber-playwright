@@ -1,6 +1,7 @@
 import { ICustomWorld } from '../support/custom-world';
 import { compareToBaseImage, getImagePath } from '../utils/compareImages';
 import { Then } from '@cucumber/cucumber';
+import percySnapshot from '@percy/playwright';
 
 Then('Snapshot {string}', async function (this: ICustomWorld, name: string) {
   const { page } = this;
@@ -19,7 +20,10 @@ Then('debug', async function () {
 });
 
 Then('Screen matches the base image {string}', async function (this: ICustomWorld, name: string) {
-  await this.page?.waitForTimeout(1000);
-  const screenshot = await this.page!.screenshot();
+  const screenshot = await this.page!.screenshot({ animations: 'disabled' });
   await compareToBaseImage(this, name, screenshot as Buffer);
+});
+
+Then('Compare screen {string}', async function (this: ICustomWorld, name: string) {
+  await percySnapshot(this.page, name);
 });
