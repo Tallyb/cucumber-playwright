@@ -7,7 +7,7 @@ Feature: Playwright docs
   Scenario: Change theme
     Given A cat fact is recieved
     When Change theme to "light" mode
-    # And Screen matches the base image "Light Mode"
+    Then Compare screen "light mode"
     Then We see "light" mode
     When Change theme to "dark" mode
-# And Screen matches the base image "Dark Mode"
+    Then Compare screen "dark mode"

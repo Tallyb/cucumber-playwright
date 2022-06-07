@@ -2,7 +2,8 @@ name: Test
 
 env:
   CI: true
-  DEBUG: pw:api  
+  DEBUG: pw:api 
+  PERCY_TOKEN: ${{secrets.PERCY_TOKEN}}
 
 on:
   push:
@@ -27,7 +28,7 @@ jobs:
     - name: install Playwright
       run: npx playwright install --with-deps > /dev/null
     - name: run features
-      run: npm run test
+      run: npx percy exec -- npm run test
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v3

@@ -1,6 +1,7 @@
 # cucumber-playwright
 
 ![Test](https://github.com/Tallyb/cucumber-playwright/workflows/Test/badge.svg)
+[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/7a647163/cucumber-playwright)
 
 A starter repo for writing E2E tests based on Cucumber(7) with Playwright using Typescript.
 
