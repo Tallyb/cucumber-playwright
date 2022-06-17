@@ -72,7 +72,7 @@ The last reporter/formatter found on the cucumber-js command-line wins:
 --format summary --format @cucumber/pretty-formatter --format cucumber-console-formatter
 ```
 
-In [cucumber.js](cucumber.js) file, modify the options.
+In [cucumber.mjs](cucumber.mjs) file, modify the options.
 
 ## To ignore a scenario
 
