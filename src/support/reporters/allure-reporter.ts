@@ -1,4 +1,4 @@
-import { AllureRuntime, CucumberJSAllureFormatter } from 'allure-cucumberjs8';
+import { AllureRuntime, CucumberJSAllureFormatter } from 'allure-cucumberjs';
 
 function Reporter(options: any) {
   return new CucumberJSAllureFormatter(

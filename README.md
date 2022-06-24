@@ -74,6 +74,9 @@ The last reporter/formatter found on the cucumber-js command-line wins:
 
 In [cucumber.mjs](cucumber.mjs) file, modify the options.
 
+
+To use Allure reporting, you can run with env param: `USE_ALLURE=1`, and then use the `npm run allure` to show the report.
+
 ## To ignore a scenario
 
 - tag the scenario with `@ignore`
