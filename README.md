@@ -4,6 +4,15 @@
 
 A starter repo for writing E2E tests based on Cucumber(7) with Playwright using Typescript.
 
+## The Why
+[Read](https://tally-b.medium.com/e2e-testing-with-cucumber-and-playwright-9584d3ef3360) or [watch](https://www.youtube.com/watch?v=PUVFmhYJNJA&list=PLwwCtx3xQxlVMZzS4oi2TafVRngQ1wF_0&index=2). 
+
+## Can we use XXX from playwright in the playwright-cucumber project? 
+
+The playwright-cucumber project started when playwright was a browser automation library. It did not have a test runner, hence cucumber-js was used as the test runner and PW used for the automation.
+Since then PW added their amazing PW test library which is a test runner. But, sadly, it overlaps the functionality provided by cucumber-js. Therefore you need to make the decision now of which runner you want to run: cucumber for BDD style tests or PW test for “normal” tests. 
+Some of the features provided by PW test are also available in cucumber-js, such as parallel run and different configurations (profiles in cucumber-js terms), but may require a different configuration. 
+
 ## Kudos
 
 This repository is based on the [Cucumber-typescript-starter](https://github.com/hdorgeval/cucumber7-ts-starter/) repo.
