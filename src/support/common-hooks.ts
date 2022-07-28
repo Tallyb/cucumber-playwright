@@ -9,10 +9,10 @@ import {
   webkit,
   WebKitBrowser,
   ConsoleMessage,
+  request,
 } from '@playwright/test';
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 import { ensureDir } from 'fs-extra';
-import axios from 'axios';
 
 let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 const tracesDir = 'traces';
@@ -56,14 +56,10 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
     viewport: { width: 1200, height: 800 },
   });
-  this.server = axios.create();
-  this.server.defaults.baseURL = config.BASE_API_URL;
-  this.server.defaults.headers.post = {
-    'Content-Type': 'application/json',
-  };
-  this.server.interceptors.response.use((res) => res.data);
-  // use login and set authorization if needed
-  // this.server.defaults.headers.common.Authorization = 'Bearer ' + token;
+  this.server = await request.newContext({
+    // All requests we send go to this API endpoint.
+    baseURL: config.BASE_API_URL,
+  });
 
   await this.context.tracing.start({ screenshots: true, snapshots: true });
   this.page = await this.context.newPage();

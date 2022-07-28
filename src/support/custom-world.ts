@@ -1,7 +1,6 @@
 import { setWorldConstructor, World, IWorldOptions } from '@cucumber/cucumber';
 import * as messages from '@cucumber/messages';
-import { BrowserContext, Page, PlaywrightTestOptions } from '@playwright/test';
-import { AxiosInstance } from 'axios';
+import { BrowserContext, Page, PlaywrightTestOptions, APIRequestContext } from '@playwright/test';
 
 export interface CucumberWorldConstructorParams {
   parameters: { [key: string]: string };
@@ -16,7 +15,7 @@ export interface ICustomWorld extends World {
   testName?: string;
   startTime?: Date;
 
-  server?: AxiosInstance;
+  server?: APIRequestContext;
 
   playwrightOptions?: PlaywrightTestOptions;
 }
