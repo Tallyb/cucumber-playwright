@@ -5,20 +5,28 @@ function Reporter(options: any) {
     options,
     new AllureRuntime({ resultsDir: './reports/allure-results' }),
     {
-      labels: {
-        epic: [/@feature:(.*)/],
-        severity: [/@severity:(.*)/],
-      },
-      links: {
-        issue: {
+      labels: [
+        {
+          name: 'epic',
+          pattern: [/@feature:(.*)/],
+        },
+        {
+          name: 'severity',
+          pattern: [/@severity:(.*)/],
+        },
+      ],
+      links: [
+        {
+          type: 'issue',
           pattern: [/@issue=(.*)/],
           urlTemplate: 'http://localhost:8080/issue/%s',
         },
-        tms: {
+        {
+          type: 'tms',
           pattern: [/@tms=(.*)/],
           urlTemplate: 'http://localhost:8080/tms/%s',
         },
-      },
+      ],
     },
   );
 }
