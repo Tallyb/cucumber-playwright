@@ -20,6 +20,11 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node }}
+    - name: Collect Workflow Telemetry
+      uses: runforesight/foresight-workflow-kit-action@v1
+      if: ${{ always() }}
+      with:
+        api_key: ${{secrets.FORESIGHT_TOKEN}}
     - name: npm ci
       run: npm ci
     - name: run lint
@@ -28,6 +33,11 @@ jobs:
       run: npx playwright install --with-deps > /dev/null
     - name: run features
       run: npm run test
+    - name: Analyze Test and/or Coverage Results
+      uses: runforesight/foresight-test-kit-action@v1
+      if: ${{ always() }}
+      with:
+        api_key: ${{secrets.FORESIGHT_TOKEN}}      
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v3
