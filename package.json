@@ -68,6 +68,6 @@
     "rimraf": "4.4.1",
     "standard-version": "9.5.0",
     "ts-node": "10.9.1",
-    "typescript": "5.0.3"
+    "typescript": "5.0.4"
   }
 }
