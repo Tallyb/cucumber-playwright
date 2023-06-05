@@ -13,9 +13,12 @@ import {
 } from '@playwright/test';
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 import { ensureDir } from 'fs-extra';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { DigyRunner } = require('@digy4/digyrunner-tallyb');
 
 let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 const tracesDir = 'traces';
+const DIGY_RUNNER = new DigyRunner();
 
 declare global {
   // eslint-disable-next-line no-var
@@ -36,6 +39,7 @@ BeforeAll(async function () {
       browser = await chromium.launch(config.browserOptions);
   }
   await ensureDir(tracesDir);
+  await DIGY_RUNNER.init(config);
 });
 
 Before({ tags: '@ignore' }, async function () {
@@ -67,8 +71,10 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
     if (msg.type() === 'log') {
       await this.attach(msg.text());
     }
+    await DIGY_RUNNER.captureDriverLog(this.testName, msg);
   });
   this.feature = pickle;
+
 });
 
 After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
@@ -87,10 +93,12 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
       });
     }
   }
+  await DIGY_RUNNER.sendResult(result, this.page, this.context, this.testName);
   await this.page?.close();
   await this.context?.close();
 });
 
 AfterAll(async function () {
   await browser.close();
+  await DIGY_RUNNER.finish();
 });
