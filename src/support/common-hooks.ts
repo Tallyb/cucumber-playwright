@@ -10,10 +10,11 @@ import {
   WebKitBrowser,
   ConsoleMessage,
   request,
+  Response,
 } from '@playwright/test';
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 import { ensureDir } from 'fs-extra';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-assignment
 const { DigyRunner } = require('@digy4/digyrunner-tallyb');
 
 let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
@@ -59,6 +60,15 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
     acceptDownloads: true,
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
     viewport: { width: 1200, height: 800 },
+    logger: {
+      isEnabled: () => true,
+      log: (name, severity, message) => {
+        DIGY_RUNNER.captureDriverLog(
+          this.testName,
+          `Type=${name}, Level=${severity}, Message=${message}\n`,
+        );
+      },
+    },
   });
   this.server = await request.newContext({
     // All requests we send go to this API endpoint.
@@ -71,10 +81,12 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
     if (msg.type() === 'log') {
       await this.attach(msg.text());
     }
-    await DIGY_RUNNER.captureDriverLog(this.testName, msg);
+    await DIGY_RUNNER.captureConsoleLog(this.testName, msg);
+  });
+  this.page.on('response', async (response: Response) => {
+    await DIGY_RUNNER.captureNetworkLog(this.testName, response);
   });
   this.feature = pickle;
-
 });
 
 After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
