@@ -1,5 +1,5 @@
 {
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     "editor.tabSize": 2,
     "files.exclude": {
         "**/.DS_Store": true,
@@ -45,5 +45,5 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     }
-    
+
 }

@@ -1,8 +1,8 @@
-name: Test 
+name: Test
 
 env:
   CI: true
-  DEBUG: pw:api  
+  DEBUG: pw:api
 
 on:
   push:
@@ -10,9 +10,9 @@ on:
 jobs:
 
   run:
-    strategy: 
+    strategy:
       matrix:
-        node: [ '14', '16', '18' ]
+        node: ['16', '18' ]
     runs-on: ubuntu-latest
 
     steps:
@@ -37,7 +37,7 @@ jobs:
       uses: runforesight/foresight-test-kit-action@v1
       if: ${{ always() }}
       with:
-        api_key: ${{secrets.FORESIGHT_TOKEN}}      
+        api_key: ${{secrets.FORESIGHT_TOKEN}}
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v3
@@ -47,7 +47,7 @@ jobs:
 
   dependabot:
     name: 'Dependabot'
-    needs: [run] 
+    needs: [run]
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'}} # Detect that the PR author is dependabot
     steps:
@@ -56,4 +56,4 @@ jobs:
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          
+
