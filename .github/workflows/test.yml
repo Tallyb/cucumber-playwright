@@ -33,11 +33,6 @@ jobs:
       run: npx playwright install --with-deps > /dev/null
     - name: run features
       run: npm run test
-    - name: Analyze Test and/or Coverage Results
-      uses: runforesight/foresight-test-kit-action@v1
-      if: ${{ always() }}
-      with:
-        api_key: ${{secrets.FORESIGHT_TOKEN}}
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v3
