@@ -14,8 +14,7 @@ import {
 } from '@playwright/test';
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 import { ensureDir } from 'fs-extra';
-// eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-assignment
-const { DigyRunner } = require('@digy4/digyrunner-tallyb');
+import { DigyRunner } from '@digy4/digyrunner-tallyb/types';
 
 let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 const tracesDir = 'traces';

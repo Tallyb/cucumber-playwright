@@ -20,6 +20,7 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "project": ["./tsconfig.json"], // Specify it only for TypeScript files
     "ecmaVersion": 2018,
     "sourceType": "module",
     "ecmaFeatures": {
@@ -50,9 +51,9 @@
     }],
     "react/prop-types": "off",
     "react/display-name": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-non-null-assertion": "off"
-    
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/no-unsafe-assignment": "error",
+    "@typescript-eslint/no-non-null-assertion": "error"
   },
   "settings": {
     "import/extensions": [
