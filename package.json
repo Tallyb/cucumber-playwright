@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/tallyb/cucumber-playwright#readme",
   "dependencies": {
-    "@cucumber/cucumber": "10.0.1",
+    "@cucumber/cucumber": "10.3.1",
     "@cucumber/html-formatter": "21.2.0",
     "@cucumber/messages": "^24.0.0",
     "@cucumber/pretty-formatter": "1.0.0",
