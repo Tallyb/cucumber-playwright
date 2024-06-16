@@ -11,7 +11,7 @@ jobs:
   run:
     strategy:
       matrix:
-        node: ['18', '20']
+        node: ['20', '22']
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +31,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-result-report
+          name: test-result-report-${{ matrix.node }}
           path: reports/report.html
 
   dependabot:
