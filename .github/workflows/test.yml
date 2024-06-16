@@ -8,32 +8,31 @@ on:
   push:
 
 jobs:
-
   run:
     strategy:
       matrix:
-        node: [ '18', '20' ]
+        node: ['18', '20']
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node }}
-    - name: npm ci
-      run: npm ci
-    - name: run lint
-      run: npm run lint
-    - name: install Playwright
-      run: npx playwright install --with-deps > /dev/null
-    - name: run features
-      run: npm run test
-    - name: Upload test results
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-result-report
-        path: reports/report.html
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: npm ci
+        run: npm ci
+      - name: run lint
+        run: npm run lint
+      - name: install Playwright
+        run: npx playwright install --with-deps > /dev/null
+      - name: run features
+        run: npm run test
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-result-report
+          path: reports/report.html
 
   dependabot:
     name: 'Dependabot'
@@ -46,4 +45,3 @@ jobs:
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
