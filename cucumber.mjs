@@ -18,7 +18,6 @@ const config = {
   ],
   formatOptions: { snippetInterface: 'async-await' },
   worldParameters: getWorldParams(),
-  publishQuiet: true,
 };
 
 if (process.env.USE_ALLURE) {
