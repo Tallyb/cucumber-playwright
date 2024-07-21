@@ -7,8 +7,7 @@ const getWorldParams = () => {
 };
 
 const config = {
-  requireModule: ['ts-node/register'],
-  require: ['src/**/*.ts'],
+  import: ['src/**/*.ts'],
   format: [
     // 'message:e2e/reports/cucumber-report.ndjson',
     'json:reports/cucumber-report.json',

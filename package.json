@@ -1,25 +1,26 @@
 {
   "name": "cucumber-playwright",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Starter project to write and debug cucumber-js features with Playwright",
   "main": "index.js",
   "scripts": {
-    "api": "DEBUG=pw:api cucumber-js",
+    "cucumber": "tsx node_modules/.bin/cucumber-js",
+    "api": "DEBUG=pw:api npm run cucumber",
     "build": "rimraf build && npm run format && npm run lint && tsc && npm run cucumber-check",
-    "cucumber-check": "cucumber-js features/**/*.feature --dry-run --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format summary --format progress --format progress-bar  --publish-quiet",
-    "debug": "PWDEBUG=1 DEBUG=pw:api cucumber-js",
-    "video": "PWVIDEO=1 cucumber-js",
+    "cucumber-check": "npm run cucumber features/**/*.feature --dry-run --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format summary --format progress --format progress-bar  --publish-quiet",
+    "debug": "PWDEBUG=1 DEBUG=pw:api npm run cucumber ",
+    "video": "PWVIDEO=1 npm run cucumber ",
     "eslint-fix": "eslint ./ --ext .js,.ts,.tsx --fix",
     "eslint-init": "eslint --init",
     "format": "prettier --write \"**/*.{ts,tsx,css,html}\" ",
     "lint": "eslint ./ --ext .js,.ts,.tsx --format visualstudio --no-color --report-unused-disable-directives",
     "only": "npm run cucumber -- --tags @only",
     "report": "open reports/report.html",
-    "snippets": "cucumber-js features/**/*.feature --dry-run --format snippets",
+    "snippets": "npm run cucumber  features/**/*.feature --dry-run --format snippets",
     "steps-usage": "cucumber-js features/**/*.feature --dry-run",
-    "all": "cucumber-js features/**/*.feature",
-    "test": "cucumber-js",
-    "test:parallel": "cucumber-js --parallel=2",
+    "all": "npm run cucumber features/**/*.feature",
+    "test": "npm run cucumber ",
+    "test:parallel": "npm run cucumber  --parallel=2",
     "docker": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:latest /bin/bash",
     "allure": "allure serve reports/allure-results"
   },
@@ -32,6 +33,7 @@
   },
   "author": "Tally Barak",
   "license": "ISC",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/tallyb/cucumber-playwright/issues"
   },
@@ -44,7 +46,7 @@
     "@playwright/test": "1.45.2",
     "@types/fs-extra": "11.0.4",
     "cucumber-html-reporter": "7.1.1",
-    "pixelmatch": "5.3.0",
+    "pixelmatch": "6.0.0",
     "pngjs": "7.0.0"
   },
   "devDependencies": {
@@ -66,6 +68,7 @@
     "prettier": "3.3.3",
     "rimraf": "6.0.1",
     "ts-node": "10.9.2",
+    "tsx": "^4.16.2",
     "typescript": "5.5.3"
   }
 }
