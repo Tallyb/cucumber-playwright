@@ -10,16 +10,17 @@ import {
   WebKitBrowser,
   ConsoleMessage,
   request,
+  Browser,
 } from '@playwright/test';
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 import { ensureDir } from 'fs-extra';
 
-let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
+let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser | Browser;
 const tracesDir = 'traces';
 
 declare global {
   // eslint-disable-next-line no-var
-  var browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
+  var browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser | Browser;
 }
 
 setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
@@ -31,6 +32,12 @@ BeforeAll(async function () {
       break;
     case 'webkit':
       browser = await webkit.launch(config.browserOptions);
+      break;
+    case 'msedge':
+      browser = await chromium.launch({ ...config.browserOptions, channel: 'msedge' });
+      break;
+    case 'chrome':
+      browser = await chromium.launch({ ...config.browserOptions, channel: 'chrome' });
       break;
     default:
       browser = await chromium.launch(config.browserOptions);
