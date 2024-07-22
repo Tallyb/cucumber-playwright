@@ -34,6 +34,7 @@
     "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
     "skipDefaultLibCheck": true,
     "resolveJsonModule": true,
+    "allowJs": true /* Allow javascript files to be compiled. */,
     /* Module Resolution Options */
     // "moduleResolution": "node",            /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
     // "baseUrl": "./",                       /* Base directory to resolve non-absolute module names. */
@@ -56,5 +57,6 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
   },
   "exclude": ["node_modules"],
-  "include": ["src"]
+  "include": ["src"],
+  "files": [".eslintrc.cjs"]
 }

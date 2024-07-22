@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "Starter project to write and debug cucumber-js features with Playwright",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "cucumber": "tsx node_modules/.bin/cucumber-js",
     "api": "DEBUG=pw:api npm run cucumber",
@@ -33,7 +34,6 @@
   },
   "author": "Tally Barak",
   "license": "ISC",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/tallyb/cucumber-playwright/issues"
   },
@@ -61,9 +61,12 @@
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-playwright": "^1.6.2",
     "eslint-plugin-prettier": "5.2.1",
     "fs-extra": "11.2.0",
+    "i": "^0.3.7",
     "multiple-cucumber-html-reporter": "3.7.0",
+    "npm": "^10.8.2",
     "open": "10.1.0",
     "prettier": "3.3.3",
     "rimraf": "6.0.1",
