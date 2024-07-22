@@ -26,11 +26,10 @@ module.exports = {
   overrides: [
     {
       files: '*.ts',
-      plugins: ['@typescript-eslint', 'prettier'],
+      plugins: ['@typescript-eslint', '@stylistic'],
       extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:prettier/recommended',
         'plugin:import/errors',
         'plugin:import/warnings',
         'plugin:import/typescript',

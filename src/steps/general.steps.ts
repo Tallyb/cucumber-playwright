@@ -19,7 +19,6 @@ Then('debug', async function () {
 });
 
 Then('Screen matches the base image {string}', async function (this: ICustomWorld, name: string) {
-  await this.page?.waitForTimeout(1000);
-  const screenshot = await this.page!.screenshot();
+  const screenshot = await this.page!.screenshot({});
   await compareToBaseImage(this, name, screenshot as Buffer);
 });

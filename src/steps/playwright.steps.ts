@@ -16,6 +16,7 @@ When('Change theme to {string} mode', async function (this: ICustomWorld, mode: 
   if (current !== mode) {
     await page.locator('nav >> button[title*="dark and light mode"]').click();
   }
+  // eslint-disable-next-line playwright/no-wait-for-selector
   await page.waitForSelector(`html[data-theme=${mode}]`);
 });
 
