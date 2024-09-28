@@ -1,6 +1,6 @@
 const getWorldParams = () => {
   const params = {
-    foo: 'bar',
+    foo: 'bar'
   };
 
   return params;
@@ -13,10 +13,10 @@ const config = {
     'json:reports/cucumber-report.json',
     'html:reports/report.html',
     'summary',
-    'progress-bar',
+    'progress-bar'
   ],
   formatOptions: { snippetInterface: 'async-await' },
-  worldParameters: getWorldParams(),
+  worldParameters: getWorldParams()
 };
 
 if (process.env.USE_ALLURE) {

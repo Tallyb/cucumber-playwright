@@ -10,7 +10,7 @@ import {
   WebKitBrowser,
   ConsoleMessage,
   request,
-  Browser,
+  Browser
 } from '@playwright/test';
 import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 import { ensureDir } from 'fs-extra';
@@ -45,12 +45,11 @@ BeforeAll(async function () {
   await ensureDir(tracesDir);
 });
 
-Before({ tags: '@ignore' }, async function () {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return 'skipped' as any;
+Before({ tags: '@ignore' }, function () {
+  return 'skipped';
 });
 
-Before({ tags: '@debug' }, async function (this: ICustomWorld) {
+Before({ tags: '@debug' }, function (this: ICustomWorld) {
   this.debug = true;
 });
 
@@ -61,18 +60,18 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
   this.context = await browser.newContext({
     acceptDownloads: true,
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
-    viewport: { width: 1200, height: 800 },
+    viewport: { width: 1200, height: 800 }
   });
   this.server = await request.newContext({
     // All requests we send go to this API endpoint.
-    baseURL: config.BASE_API_URL,
+    baseURL: config.BASE_API_URL
   });
 
   await this.context.tracing.start({ screenshots: true, snapshots: true });
   this.page = await this.context.newPage();
-  this.page.on('console', async (msg: ConsoleMessage) => {
+  this.page.on('console', (msg: ConsoleMessage) => {
     if (msg.type() === 'log') {
-      await this.attach(msg.text());
+      this.attach(msg.text());
     }
   });
   this.feature = pickle;
@@ -80,7 +79,7 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
 
 After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
   if (result) {
-    await this.attach(`Status: ${result?.status}. Duration:${result.duration?.seconds}s`);
+    this.attach(`Status: ${result?.status}. Duration:${result.duration?.seconds}s`);
 
     if (result.status !== Status.PASSED) {
       const image = await this.page?.screenshot();
@@ -88,9 +87,11 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
       // Replace : with _ because colons aren't allowed in Windows paths
       const timePart = this.startTime?.toISOString().split('.')[0].replaceAll(':', '_');
 
-      image && (await this.attach(image, 'image/png'));
+      if (image) {
+        this.attach(image, 'image/png');
+      }
       await this.context?.tracing.stop({
-        path: `${tracesDir}/${this.testName}-${timePart}trace.zip`,
+        path: `${tracesDir}/${this.testName}-${timePart}trace.zip`
       });
     }
   }

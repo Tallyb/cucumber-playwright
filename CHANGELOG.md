@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/tallyb/cucumber7-playwright/compare/v3.0.0...v2.0.0) (2021-07-24)
+Migrating to eslint 9 and typescript eslint 8.
+Scripts are now compiled to esm and not to commonjs
+
+
 ## [1.2.0](https://github.com/tallyb/cucumber7-playwright/compare/v1.1.1...v1.2.0) (2021-07-24)
 
 

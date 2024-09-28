@@ -10,15 +10,16 @@ Then('Snapshot {string}', async function (this: ICustomWorld, name: string) {
 Then('Snapshot', async function (this: ICustomWorld) {
   const { page } = this;
   const image = await page?.screenshot();
-  image && (await this.attach(image, 'image/png'));
+  if (image) {
+    this.attach(image, 'image/png');
+  }
 });
 
-Then('debug', async function () {
-  // eslint-disable-next-line no-debugger
+Then('debug', function () {
   debugger;
 });
 
 Then('Screen matches the base image {string}', async function (this: ICustomWorld, name: string) {
   const screenshot = await this.page!.screenshot({});
-  await compareToBaseImage(this, name, screenshot as Buffer);
+  await compareToBaseImage(this, name, screenshot);
 });
