@@ -7,14 +7,8 @@
     {
       "name": "debug",
       "request": "launch",
-      "runtimeArgs": [
-        "./node_modules/.bin/cucumber-js",
-        "${file}"
-      ],
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "type": "pwa-node",
+      "runtimeArgs": ["tsx", "./node_modules/.bin/cucumber-js", "${file}"],
+      "skipFiles": ["<node_internals>/**"],
       "env": {
         "DEBUG": "pw:api",
         "PWDEBUG": "1"
@@ -25,16 +19,8 @@
     {
       "name": "debug-only",
       "request": "launch",
-      "runtimeArgs": [
-        "./node_modules/.bin/cucumber-js",
-        "${file}",
-        "--tags",
-        "@only"
-      ],
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "type": "pwa-node",
+      "runtimeArgs": ["tsx", "./node_modules/.bin/cucumber-js", "${file}", "--tags", "@only"],
+      "skipFiles": ["<node_internals>/**"],
       "env": {
         "DEBUG": "pw:api",
         "PWDEBUG": "1"
@@ -46,26 +32,16 @@
       "name": "Attach by Process ID",
       "processId": "${command:PickProcess}",
       "request": "attach",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "type": "pwa-node"
+      "skipFiles": ["<node_internals>/**"]
     },
     {
       "name": "Current TS File",
       "type": "node",
       "request": "launch",
-      "args": [
-        "${relativeFile}"
-      ],
-      "runtimeArgs": [
-        "--nolazy",
-        "-r",
-        "ts-node/register"
-      ],
+      "args": ["${relativeFile}"],
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
       "sourceMaps": true,
-      "cwd": "${workspaceRoot}",
-      "protocol": "inspector",
+      "cwd": "${workspaceRoot}"
     }
   ]
 }

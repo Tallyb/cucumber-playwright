@@ -37,7 +37,12 @@
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
 
-  "cucumberautocomplete.syncfeatures": "./features/**/*.feature",
-  "cucumberautocomplete.steps": ["src/steps/**/*.ts"],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cucumber.glue": ["src/**/*.ts"],
+  "cucumber.features": ["features/**/*.feature"],
+  "cucumberTestRunner.env": {
+    "PWDEBUG": 1,
+    "NODE_OPTIONS": "--import tsx"
+  },
+  "cucumberTestRunner.profile": ""
 }
