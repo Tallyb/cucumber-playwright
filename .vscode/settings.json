@@ -30,9 +30,7 @@
   "typescript.implementationsCodeLens.enabled": true,
   "git.autofetch": true,
   "eslint.alwaysShowStatus": true,
-  "eslint.options": {
-    "extensions": [".js", ".ts"]
-  },
+  "eslint.options": {},
   "eslint.validate": ["javascript", "typescript"],
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
@@ -44,5 +42,6 @@
     "PWDEBUG": 1,
     "NODE_OPTIONS": "--import tsx"
   },
-  "cucumberTestRunner.profile": ""
+  "cucumberTestRunner.profile": "",
+  "eslint.codeActionsOnSave.rules": null
 }

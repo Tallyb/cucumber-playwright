@@ -25,5 +25,5 @@ Then('Screen matches the base image {string}', async function (this: ICustomWorl
 });
 
 Given('Use Fake time {string}', async function (this: ICustomWorld, time: string) {
-  this.page!.clock.setFixedTime(new Date(time));
+  await this.page!.clock.setFixedTime(new Date(time));
 });

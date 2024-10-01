@@ -1,5 +1,5 @@
 import { ICustomWorld } from '../support/custom-world';
-import { Given, Then } from '@cucumber/cucumber';
+import { Given } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 import { v4 } from 'uuid';
 
