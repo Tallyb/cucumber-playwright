@@ -12,7 +12,6 @@ import {
   request,
   Browser
 } from '@playwright/test';
-import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
 import { ensureDir } from 'fs-extra';
 
 let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser | Browser;
@@ -53,7 +52,7 @@ Before({ tags: '@debug' }, function (this: ICustomWorld) {
   this.debug = true;
 });
 
-Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
+Before(async function (this: ICustomWorld, { pickle }) {
   this.startTime = new Date();
   this.testName = pickle.name.replace(/\W/g, '-');
   // customize the [browser context](https://playwright.dev/docs/next/api/class-browser#browsernewcontextoptions)
@@ -77,7 +76,7 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
   this.feature = pickle;
 });
 
-After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
+After(async function (this: ICustomWorld, { result }) {
   if (result) {
     this.attach(`Status: ${result?.status}. Duration:${result.duration?.seconds}s`);
 
