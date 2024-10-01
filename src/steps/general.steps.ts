@@ -1,6 +1,6 @@
 import { ICustomWorld } from '../support/custom-world';
 import { compareToBaseImage, getImagePath } from '../utils/compareImages';
-import { Then } from '@cucumber/cucumber';
+import { Given, Then } from '@cucumber/cucumber';
 
 Then('Snapshot {string}', async function (this: ICustomWorld, name: string) {
   const { page } = this;
@@ -22,4 +22,8 @@ Then('debug', function () {
 Then('Screen matches the base image {string}', async function (this: ICustomWorld, name: string) {
   const screenshot = await this.page!.screenshot({});
   await compareToBaseImage(this, name, screenshot);
+});
+
+Given('Use Fake time {string}', async function (this: ICustomWorld, time: string) {
+  this.page!.clock.setFixedTime(new Date(time));
 });

@@ -17,6 +17,7 @@ export interface ICustomWorld extends World {
 
   server?: APIRequestContext;
 
+  username?: string;
   playwrightOptions?: PlaywrightTestOptions;
 }
 
