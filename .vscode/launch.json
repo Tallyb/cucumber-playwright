@@ -6,8 +6,9 @@
   "configurations": [
     {
       "name": "debug",
+      "type": "node",
       "request": "launch",
-      "runtimeArgs": ["tsx", "./node_modules/.bin/cucumber-js", "${file}"],
+      "runtimeArgs": ["./node_modules/.bin/tsx", "./node_modules/.bin/cucumber-js", "${file}"],
       "skipFiles": ["<node_internals>/**"],
       "env": {
         "DEBUG": "pw:api",
@@ -18,8 +19,9 @@
     },
     {
       "name": "debug-only",
+      "type": "node",
       "request": "launch",
-      "runtimeArgs": ["tsx", "./node_modules/.bin/cucumber-js", "${file}", "--tags", "@only"],
+      "runtimeArgs": ["./node_modules/.bin/tsx", "./node_modules/.bin/cucumber-js", "${file}", "--tags", "@only"],
       "skipFiles": ["<node_internals>/**"],
       "env": {
         "DEBUG": "pw:api",
@@ -30,6 +32,7 @@
     },
     {
       "name": "Attach by Process ID",
+      "type": "node",
       "processId": "${command:PickProcess}",
       "request": "attach",
       "skipFiles": ["<node_internals>/**"]
