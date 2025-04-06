@@ -55,7 +55,7 @@
     "eslint-config-prettier": "10.1.1",
     "eslint-plugin-playwright": "2.1.0",
     "eslint-plugin-prettier": "5.2.6",
-    "fs-extra": "11.2.0",
+    "fs-extra": "11.3.0",
     "multiple-cucumber-html-reporter": "3.9.2",
     "open": "10.1.0",
     "pixelmatch": "6.0.0",
