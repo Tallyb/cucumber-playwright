@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "cucumber": "tsx node_modules/@cucumber/cucumber/bin/cucumber.js",
+    "cucumber": "tsx node_modules/.bin/cucumber.js",
     "api": "DEBUG=pw:api npm run cucumber",
     "build": "rimraf build && npm run format && npm run lint && tsc && npm run cucumber-check",
     "cucumber-check": "npm run cucumber features/**/*.feature --dry-run --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format summary --format progress --format progress-bar  --publish-quiet",
