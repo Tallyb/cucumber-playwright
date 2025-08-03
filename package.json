@@ -24,7 +24,7 @@
     "allure": "allure serve reports/allure-results"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
   "repository": {
     "type": "git",
