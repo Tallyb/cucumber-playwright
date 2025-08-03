@@ -25,21 +25,21 @@ interface ImagePathOptions {
 export function getImagePath(
   customWorld: ICustomWorld,
   name: string,
-  options?: ImagePathOptions,
+  options?: ImagePathOptions
 ): string {
   return join(
     'screenshots',
     customWorld.feature?.uri ?? '',
     options?.skipOs ? '' : process.platform,
     config.browser,
-    `${name}.png`,
+    `${name}.png`
   );
 }
 export async function compareToBaseImage(
   customWorld: ICustomWorld,
   name: string,
   screenshot: Buffer,
-  threshold?: { threshold: number },
+  threshold?: { threshold: number }
 ) {
   let baseImage;
   const baseImagePath = getImagePath(customWorld, name);
@@ -50,7 +50,7 @@ export async function compareToBaseImage(
     await ensureFile(baseImagePath);
     writeFileSync(baseImagePath, screenshot);
     customWorld.log(
-      `The base Image doesn't exist, a screenshot was taken to ${baseImagePath} so it can be used for next run`,
+      `The base Image doesn't exist, a screenshot was taken to ${baseImagePath} so it can be used for next run`
     );
     return;
   }
@@ -71,7 +71,7 @@ export async function compareToBaseImage(
 export function getDifference(
   img1: PNG,
   img2: PNG,
-  threshold = config.IMG_THRESHOLD,
+  threshold = config.IMG_THRESHOLD
 ): Buffer | undefined {
   const { width, height } = img2;
   const diff = new PNG({ width, height });
