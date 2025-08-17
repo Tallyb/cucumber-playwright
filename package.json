@@ -51,7 +51,7 @@
     "@typescript-eslint/parser": "8.31.1",
     "allure-cucumberjs": "3.2.1",
     "cucumber-html-reporter": "7.2.0",
-    "eslint": "9.26.0",
+    "eslint": "9.33.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-playwright": "2.2.2",
     "eslint-plugin-prettier": "5.5.4",
