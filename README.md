@@ -81,7 +81,7 @@ The last reporter/formatter found on the cucumber-js command-line wins:
 --format summary --format @cucumber/pretty-formatter --format cucumber-console-formatter
 ```
 
-In [cucumber.mjs](cucumber.mjs) file, modify the options.
+In [cucumber.js](cucumber.js) file, modify the options.
 
 
 To use Allure reporting, you can run with env param: `USE_ALLURE=1`, and then use the `npm run allure` to show the report.
