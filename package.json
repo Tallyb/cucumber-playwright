@@ -42,7 +42,7 @@
     "@cucumber/messages": "27.2.0",
     "@cucumber/pretty-formatter": "1.0.1",
     "@playwright/test": "1.54.2",
-    "@stylistic/eslint-plugin": "4.4.1",
+    "@stylistic/eslint-plugin": "5.2.3",
     "@types/fs-extra": "11.0.4",
     "@types/node": "22.17.2",
     "@types/pixelmatch": "5.2.6",
