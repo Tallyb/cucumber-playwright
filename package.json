@@ -44,7 +44,7 @@
     "@playwright/test": "1.55.0",
     "@stylistic/eslint-plugin": "5.2.3",
     "@types/fs-extra": "11.0.4",
-    "@types/node": "22.17.2",
+    "@types/node": "22.18.0",
     "@types/pixelmatch": "5.2.6",
     "@types/pngjs": "6.0.5",
     "@typescript-eslint/eslint-plugin": "8.41.0",
